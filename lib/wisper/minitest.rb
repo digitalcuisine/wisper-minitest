@@ -1,0 +1,1 @@
+require 'wisper/minitest/version'
