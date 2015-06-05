@@ -28,33 +28,51 @@ class TestAssertBroadcast < Minitest::Test
   def test_passes_with_matching_event
     assert_broadcast(event_name) { broadcaster.broadcast(event_name) }
   end
-  
-  def test_fails_with_no_broadcast
-    assert_raises MiniTest::Assertion do
-      assert_broadcast(event_name) { }
-    end
-  end
-  
-  def test_fails_with_descriptive_failure_message_on_no_event
-    exp = assert_raises MiniTest::Assertion do
-      assert_broadcast(event_name) { }
-    end
-    
-    assert_equal exp.message, "expected publisher to broadcast #{event_name} event (no events broadcast)"
-  end
-  
+
   def test_fails_with_non_matching_event
     assert_raises Minitest::Assertion do
       assert_broadcast(event_name, &non_matching_broadcast)
     end
   end
-  
+
   def test_fails_with_descriptive_failure_message_on_non_matching_event
     exp = assert_raises MiniTest::Assertion do
       assert_broadcast(event_name, &non_matching_broadcast)
     end
 
     assert_equal exp.message, "expected publisher to broadcast #{event_name} event (not included in #{event1}, #{event2})"
+  end
+  
+  def test_fails_with_no_broadcast
+    assert_raises Minitest::Assertion do
+      assert_broadcast(event_name) { }
+    end
+  end
+  
+  def test_fails_with_descriptive_failure_message_on_no_event
+    exp = assert_raises Minitest::Assertion do
+      assert_broadcast(event_name) { }
+    end
+    
+    assert_equal exp.message, "expected publisher to broadcast #{event_name} event (no events broadcast)"
+  end
+  
+  def test_passes_with_matching_event_and_arguments
+    assert_broadcast(event_name, :arg1, :arg2) { broadcaster.broadcast(event_name, :arg1, :arg2) }
+  end
+  
+  def test_fails_with_non_matching_arguments
+    assert_raises Minitest::Assertion do
+      assert_broadcast(event_name, :arg1, :arg2, &non_matching_broadcast)
+    end
+  end
+
+  def test_fails_with_descriptive_failure_message_on_non_matching_arguments
+    exp = assert_raises Minitest::Assertion do
+      assert_broadcast(event_name, :arg1, :arg2, &non_matching_broadcast)
+    end
+
+    assert_equal exp.message, "expected publisher to broadcast #{event_name} event with args: [:arg1, :arg2]"
   end
   
 end
