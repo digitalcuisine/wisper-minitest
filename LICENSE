@@ -1,6 +1,12 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 Olivier Lance
+Some work is Copyright (c) 2014 Kris Leech under the same license :
+	* The Wisper::Minitest::EventRecorder class, with some modifications from
+	  Digital Cuisine	  
+	* Tests have been ported from wisper-rspec — when possible the original code 
+	  has been kept.
+
+All the rest is Copyright (c) 2015 Digital Cuisine
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
