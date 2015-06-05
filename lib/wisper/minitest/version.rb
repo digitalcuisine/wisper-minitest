@@ -1,5 +1,5 @@
 module Wisper
-  module MiniTest
+  module Minitest
     VERSION = '0.0.1'
   end
 end

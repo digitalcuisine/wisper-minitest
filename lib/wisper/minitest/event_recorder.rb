@@ -1,5 +1,5 @@
 module Wisper
-  module MiniTest
+  module Minitest
     class EventRecorder
       attr_reader :broadcast_events
 

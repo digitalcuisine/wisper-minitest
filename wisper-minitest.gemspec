@@ -5,7 +5,7 @@ require 'wisper/minitest/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'wisper-minitest'
-  spec.version       = Wisper::MiniTest::VERSION
+  spec.version       = Wisper::Minitest::VERSION
   spec.authors       = ['Olivier Lance @ Digital Cuisine']
   spec.email         = ["olivier@digitalcuisine.fr"]
   spec.summary       = 'MiniTest assertions/expectations and stubbing for Wisper'
