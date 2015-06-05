@@ -2,6 +2,8 @@ module Wisper
   module Minitest
     class EventRecorder
       attr_reader :broadcast_events
+      attr_reader :event_name
+      attr_reader :args
 
       def initialize
         @broadcast_events = []
@@ -16,6 +18,9 @@ module Wisper
       end
 
       def broadcast?(event_name, *args)
+        @event_name = event_name
+        @args = args
+        
         if args.size > 0
           @broadcast_events.include?([event_name.to_s, *args])
         else
