@@ -45,13 +45,13 @@ class TestAssertBroadcast < Minitest::Test
   
   def test_fails_with_non_matching_event
     assert_raises Minitest::Assertion do
-      assert_broadcast(event_name, non_matching_broadcast)
+      assert_broadcast(event_name, &non_matching_broadcast)
     end
   end
   
   def test_fails_with_descriptive_failure_message_on_non_matching_event
     exp = assert_raises MiniTest::Assertion do
-      assert_broadcast(event_name, non_matching_broadcast)
+      assert_broadcast(event_name, &non_matching_broadcast)
     end
 
     assert_equal exp.message, "expected publisher to broadcast #{event_name} event (not included in #{event1}, #{event2})"
