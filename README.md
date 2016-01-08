@@ -46,8 +46,8 @@ The [wisper-rspec](https://github.com/krisleech/wisper-rspec) gem is not fully
 ported yet. Here's what's missing: 
 
 - [x] Convert `broadcast` expectation to `assert_broadcast` assertion
-- [ ] Add a `refute_broadcast` assertion
-- [ ] Make those available as Minitest expectations too
+- [x] Add a `refute_broadcast` assertion
+- [x] Make those available as Minitest expectations too
 - [ ] Document or implement a way to assert that a listener is receiving events 
 - [ ] Port publisher stub feature 
 
